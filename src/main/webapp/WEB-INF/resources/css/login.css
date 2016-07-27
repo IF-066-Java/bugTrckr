@@ -1,0 +1,32 @@
+/*LoginForm form*/
+
+.reg-page {
+    color: #555;
+    padding: 30px;
+    background: #fefefe;
+    border: solid 1px #eee;
+    box-shadow: 0 0 3px #eee;
+}
+
+.reg-header {
+    color: #555;
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: solid 1px #eee;
+}
+
+.input-group {
+    color: #555;
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    margin-bottom: 20px;
+}
+
+.input-group .form-control:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group-addon:first-child {
+    border-right: 0;
+}

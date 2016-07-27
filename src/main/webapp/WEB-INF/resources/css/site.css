@@ -1,0 +1,13 @@
+.footer {
+    background-color: #272727;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #eee;
+}
+
+.btn-u {
+    background: #324c80;
+    border: 0;
+    color: #fff;
+    padding: 6px 13px;
+}
