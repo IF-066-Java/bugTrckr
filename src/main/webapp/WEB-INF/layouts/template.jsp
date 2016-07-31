@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="<spring:url value="${css}"/>">
     </c:forEach>
     <!-- end stylesheets -->
+    <link rel="icon" type="image/png" href="<spring:url value="${images/favicon.png}"/>" >
 </head>
 <body>
 <div class="page">

@@ -13,7 +13,7 @@
                 <p>2016 © All Rights Reserved</p>
             </div>
             <div class="col-sm-6">
-                <p class="pull-right">AgileSoftware</p>
+                <p class="pull-right">Agile Software</p>
             </div>
         </div>
     </footer>

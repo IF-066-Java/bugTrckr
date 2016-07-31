@@ -1,3 +1,102 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+/*For form validation*/
+
+ .margin-left-5 {
+     margin-left: 5px;
+ }
+
+/*Header bar begin*/
+
+.topbar {
+    padding: 8px 0px;
+    background: #2a2a2a;
+}
+
+.topbar ul.left-topbar {
+    padding-left: 15px;
+}
+
+.topbar ul.left-topbar > li {
+    display: inline;
+    list-style: none;
+    position: relative;
+    margin-right: 15px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.right-topbar {
+    margin-left: 0;
+    padding-right: 15px;
+}
+
+.topbar ul.right-topbar div li {
+    display: inline;
+    list-style: none;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+/*Header bar end*/
+
+/*Menu begin*/
+
+.top-main-menu .navbar-brand {
+    padding: 10px 40px 60px 15px;
+}
+
+.top-main-menu .navbar-default {
+    border: none;
+    background: none;
+}
+
+.top-main-menu .navbar-nav {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+
+}
+/*Navbar Menu*/
+
+.top-main-menu .navbar-nav > li > a {
+    color: #687074;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-decoration: none;
+}
+
+.top-main-menu .navbar-nav > .active > a,
+.top-main-menu .navbar-nav > .active > a:hover,
+.top-main-menu .navbar-nav > .active > a:focus
+{
+    color: #4765a0;
+    background: none;
+    border-top-color: #4765a0;
+}
+
+.top-main-menu .navbar-nav > li > a:focus {
+    background: none;
+}
+
+.top-main-menu .navbar-nav > li > a:hover {
+    background: none;
+    color: #4765a0;
+}
+
+/*Menu end*/
+
 .footer {
     background-color: #272727;
     padding: 20px 0;
