@@ -33,8 +33,10 @@ public class WebAppInitializer implements WebApplicationInitializer {
         //Define and register a dispatcher servlet that can manage all servlets
         DispatcherServlet dispatcherServlet = new DispatcherServlet(rootContext);
         ServletRegistration.Dynamic registration = container.addServlet("dispatcherServlet", dispatcherServlet);
+
         //load the servlet only once
         registration.setLoadOnStartup(1);
+
         //add mapping this servlet to all requests
         registration.addMapping("/");
     }

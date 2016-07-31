@@ -21,7 +21,7 @@
         <slf4j-version>1.7.21</slf4j-version>
 
         <!--Database-->
-        <jdbc-driver-version>6.0.3</jdbc-driver-version>
+        <jdbc-driver-version>5.1.38</jdbc-driver-version>
         <spring-data-jpa-version>1.10.2.RELEASE</spring-data-jpa-version>
         <hibernate-version>5.2.1.Final</hibernate-version>
 
