@@ -23,8 +23,9 @@
             <add-attribute value="/css/site.css"/>
         </put-list-attribute>
         <put-list-attribute name="javascripts">
-            <add-attribute value="/WEB-INF/resources/js/jquery-2.2.4.min.js"/>
-            <add-attribute value="/WEB-INF/resources/js/bootstrap.min.js"/>
+            <add-attribute value="/js/jquery-2.2.4.min.js"/>
+            <add-attribute value="/js/bootstrap.min.js"/>
+            <add-attribute value="/js/jquery.validate.min.js"/>
         </put-list-attribute>
     </definition>
 
@@ -34,6 +35,10 @@
         <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/css/login.css"/>
         </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute value="/js/index-page.js"/>
+        </put-list-attribute>
     </definition>
+
 
 </tiles-definitions>

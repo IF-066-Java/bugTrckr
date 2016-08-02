@@ -21,15 +21,13 @@
         <slf4j-version>1.7.21</slf4j-version>
 
         <!--Database-->
-        <jdbc-driver-version>5.1.38</jdbc-driver-version>
+        <jdbc-driver-version>6.0.3</jdbc-driver-version>
         <spring-data-jpa-version>1.10.2.RELEASE</spring-data-jpa-version>
         <hibernate-version>5.2.1.Final</hibernate-version>
 
         <!--Maven plugins-->
         <maven-war-plugin-version>2.6</maven-war-plugin-version>
         <maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
-
-        <apache.commons-version>3.0</apache.commons-version>
     </properties>
 
     <dependencies>
@@ -140,12 +138,6 @@
             <version>${hibernate-version}</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${apache.commons-version}</version>
-        </dependency>
     </dependencies>
 
     <build>
