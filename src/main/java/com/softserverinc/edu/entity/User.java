@@ -3,31 +3,43 @@ package com.softserverinc.edu.entity;
 import javax.persistence.*;
 
 /**
- * Created by pasha on 7/30/16.
+ * Created by ihorlt on 28.07.16.
  */
 @Entity
+@Table(name = "user")
 public class User {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String role;
-    private String description;
-    private Project projectByProjectId;
 
     @Id
-    @Column(name = "id")
-    public int getId() {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true, nullable = false)
+    private Long id;
+
+    @Column(name = "firstName", nullable = false, length = 25)
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false, length = 25)
+    private String lastName;
+
+    @Column(name = "email", unique = true, nullable = false, length = 100)
+    private String email;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @Column(name = "role", nullable = false, length = 15)
+    private String role;
+
+    @Column(name = "description", nullable = true, length = 65535)
+    private String description;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
@@ -36,8 +48,6 @@ public class User {
         this.firstName = firstName;
     }
 
-    @Basic
-    @Column(name = "lastName")
     public String getLastName() {
         return lastName;
     }
@@ -46,8 +56,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -56,8 +64,6 @@ public class User {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -66,8 +72,6 @@ public class User {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "role")
     public String getRole() {
         return role;
     }
@@ -76,8 +80,6 @@ public class User {
         this.role = role;
     }
 
-    @Basic
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -87,42 +89,44 @@ public class User {
     }
 
     @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof User)) return false;
 
         User user = (User) o;
 
-        if (id != user.id) return false;
-        if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (role != null ? !role.equals(user.role) : user.role != null) return false;
-        if (description != null ? !description.equals(user.description) : user.description != null) return false;
+        if (!id.equals(user.id)) return false;
+        if (!firstName.equals(user.firstName)) return false;
+        if (!lastName.equals(user.lastName)) return false;
+        if (!email.equals(user.email)) return false;
+        if (!password.equals(user.password)) return false;
+        if (!role.equals(user.role)) return false;
+        return description != null ? description.equals(user.description) : user.description == null;
 
-        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
+        int result = id.hashCode();
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + email.hashCode();
+        result = 31 * result + password.hashCode();
+        result = 31 * result + role.hashCode();
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "projectId", referencedColumnName = "id", nullable = false)
-    public Project getProjectByProjectId() {
-        return projectByProjectId;
-    }
-
-    public void setProjectByProjectId(Project projectByProjectId) {
-        this.projectByProjectId = projectByProjectId;
     }
 }
