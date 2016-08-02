@@ -42,6 +42,8 @@ public class DBConfig extends WebMvcConfigurerAdapter {
     @Bean
     public DataSource dataSource() {
         //Spring-jdbc library
+        LOGGER.debug("DBConfig.dataSource is called");
+
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getProperty("jdbc.driverClass"));
         dataSource.setUrl(environment.getProperty("jdbc.url"));
