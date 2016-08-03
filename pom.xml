@@ -1,0 +1,311 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.softserverinc.edu</groupId>
+    <artifactId>AgileSoftware</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>agiledev Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <java-version>1.8</java-version>
+        <servlet-version>3.1.0</servlet-version>
+        <jsp-version>2.3.1</jsp-version>
+        <jstl-version>1.2</jstl-version>
+        <apache-tiles-version>3.0.5</apache-tiles-version>
+        <spring-version>4.3.1.RELEASE</spring-version>
+
+        <!--Logging-->
+        <logback-classic-version>1.1.7</logback-classic-version>
+        <slf4j-version>1.7.21</slf4j-version>
+
+        <!--Database-->
+        <jdbc-driver-version>6.0.3</jdbc-driver-version>
+        <spring-data-jpa-version>1.10.2.RELEASE</spring-data-jpa-version>
+        <hibernate-version>5.2.1.Final</hibernate-version>
+
+        <!--Maven plugins-->
+        <maven-war-plugin-version>2.6</maven-war-plugin-version>
+        <maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+
+        <apache.commons-version>3.0</apache.commons-version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>${jsp-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl-version}</version>
+        </dependency>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!-- Logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j-version}</version>
+        </dependency>
+
+        <!--Apache Tiles-->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-extras</artifactId>
+            <version>${apache-tiles-version}</version>
+        </dependency>
+
+        <!--Database-->
+
+        <!-- MySQL JDBC connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${jdbc-driver-version}</version>
+        </dependency>
+
+        <!-- Spring -->
+        <!-- This library responsible for:
+        Open the connection.
+        Prepare and execute the statement.
+        Process any exception.
+        Handle transactions.
+        Close the connection, statement and resultset. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!--
+           It  supports integration with Hibernate, Java Persistence API (JPA) and Java Data Objects (JDO)
+            for resource management, data access object (DAO) implementations, and transaction strategies.
+            Benefits of using it
+               Common data access exceptions. Spring can wrap exceptions from your ORM tool
+               General resource management. Spring application contexts can handle the location
+                and configuration of Hibernate SessionFactory instances, JPA EntityManagerFactory instances,
+               JDBC DataSource instances,
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!-- Spring Data Jpa -->
+        <!--
+            makes it easy to easily implement JPA based repositories.
+            This module deals with enhanced support for JPA based data access layers
+            Simplifying to execute simple queries as well as perform pagination, and auditing
+        -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa-version}</version>
+        </dependency>
+
+        <!-- Hibernate -->
+        <!--
+        It standardizes the basic APIs and the metadata needed for any object/relational persistence mechanism.
+        Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined
+        by the JPA 2.0 specification (transparent object/relational mapping)
+        -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+
+
+        <!--Bean and form validation enabled by spring @EnableWebMvc annotation-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.4.Final</version>
+        </dependency>
+
+        <!-- Assists in creating consistent equals(Object), toString(), hashCode(), and compareTo(Object) methods -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons-version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>agiledev</finalName>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <!-- Web.xml is not required with Servlet 3.0+ specification -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warSourceDirectory>${project.basedir}/src/main/webapp/WEB-INF</warSourceDirectory>
+                    <webResources>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>${project.basedir}/src/main/webapp/WEB-INF/resources</directory>
+                            <targetPath>WEB-INF/resources</targetPath>
+                        </resource>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>${project.basedir}/src/main/webapp/WEB-INF/layouts</directory>
+                            <targetPath>WEB-INF/layouts</targetPath>
+                        </resource>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>${project.basedir}/src/main/webapp/WEB-INF/views</directory>
+                            <targetPath>WEB-INF/views</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+                <version>${maven-war-plugin-version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin-version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
+
+
+
+            <plugin>
+                <groupId>org.dbmaintain</groupId>
+                <artifactId>dbmaintain-maven-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <scriptLocations>${project.basedir}/dbscripts</scriptLocations>
+                    <archiveFileName>agilesoftware_db.jar</archiveFileName>
+                    <autoCreateDbMaintainScriptsTable>true</autoCreateDbMaintainScriptsTable>
+                    <fromScratchEnabled>true</fromScratchEnabled>
+                    <qualifiers>
+                        create,refdata
+                    </qualifiers>
+                    <databases>
+                        <database>
+                            <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                            <userName>root</userName>
+                            <password>root</password>
+                            <url>jdbc:mysql://localhost:3306/agilesoftware?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</url>
+                            <schemaNames>agilesoftware</schemaNames>
+                        </database>
+                    </databases>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>db-jar</id>
+                        <goals>
+                            <goal>createScriptArchive</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>db-clear</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>clearDatabase</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>db-uptodate-create</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>markDatabaseAsUpToDate</goal>
+                        </goals>
+                        <configuration>
+                            <includedQualifiers>create</includedQualifiers>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>db-update-create</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>updateDatabase</goal>
+                        </goals>
+                        <configuration>
+                            <includedQualifiers>create</includedQualifiers>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>db-update-refdata</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>updateDatabase</goal>
+                        </goals>
+                        <configuration>
+                            <includedQualifiers>create,refdata</includedQualifiers>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>db-drop-constraints</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>disableConstraints</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>db-clean</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>cleanDatabase</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${jdbc-driver-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+
+    </build>
+</project>

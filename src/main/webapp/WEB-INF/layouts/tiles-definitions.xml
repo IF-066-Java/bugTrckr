@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!--Abstract definition: it is a definition in which the template attributes are not completely filled.
+    It creates base page and a number of extending definitions, reusing already created layout.-->
+
+    <!--Absent attributes:
+      - content
+      - tilte
+      -->
+
+    <definition name="abstractDefaultTemplate" template="/WEB-INF/layouts/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/layouts/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+        <put-list-attribute name="stylesheets">
+            <add-attribute value="/css/bootstrap.min.css"/>
+            <add-attribute value="/css/bootstrap-theme.min.css"/>
+            <add-attribute value="/css/font-awesome.min.css"/>
+            <add-attribute value="/css/site.css"/>
+        </put-list-attribute>
+        <put-list-attribute name="javascripts">
+            <add-attribute value="/js/jquery-2.2.4.min.js"/>
+            <add-attribute value="/js/bootstrap.min.js"/>
+            <add-attribute value="/js/jquery.validate.min.js"/>
+        </put-list-attribute>
+    </definition>
+
+    <definition name="index" extends="abstractDefaultTemplate">
+        <put-attribute name="title" value="My first page" />
+        <put-attribute name="content" value="/WEB-INF/views/index.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/css/login.css"/>
+        </put-list-attribute>
+        <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute value="/js/index-page.js"/>
+        </put-list-attribute>
+    </definition>
+
+
+</tiles-definitions>
