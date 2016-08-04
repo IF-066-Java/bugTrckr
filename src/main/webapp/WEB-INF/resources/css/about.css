@@ -1,0 +1,95 @@
+.breadcrumbs {
+    z-index: 1;
+    padding: 100px 0;
+    position: relative;
+}
+
+.breadcrumbs.img-bg {
+    background: url(../images/img_about.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.breadcrumbs:after {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: " ";
+    position: absolute;
+    background: rgba(0,0,0,0.2);
+}
+
+.breadcrumbs h1 {
+    color: #fff;
+    font-size: 45px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+
+.breadcrumbs p {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 200;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+
+.headline-center {
+    text-align: center;
+    position: relative;
+}
+
+.headline-center h2 {
+    color: #555;
+    font-size: 24px;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.headline-center h2:after {
+    left: 50%;
+    z-index: 1;
+    width: 30px;
+    height: 2px;
+    content: " ";
+    bottom: -5px;
+    margin-left: -15px;
+    text-align: center;
+    position: absolute;
+    background: #784A3B;
+}
+
+.headline-center p {
+    font-size: 14px;
+}
+
+.service-block {
+    text-align: center;
+    background: #f7f7f7;
+}
+
+
+.service-block .service-inner {
+    padding: 80px 40px;
+}
+
+.service-block .service-inner i {
+    margin-bottom: 30px;
+}
+
+.service-block .service-inner span {
+    display: block;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.service-block .service-border {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}

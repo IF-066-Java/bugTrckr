@@ -19,14 +19,9 @@ import javax.validation.Valid;
  */
 @Controller
 @SessionAttributes("loginForm")
-public class RootController {
+public class MainPageController {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(RootController.class);
-
-    @RequestMapping(value = "/")
-    public String index() {
-        return "index";
-    }
+    public  static final Logger LOGGER = LoggerFactory.getLogger(MainPageController.class);
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

@@ -5,10 +5,11 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "History")
-public class History {
+public class History implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

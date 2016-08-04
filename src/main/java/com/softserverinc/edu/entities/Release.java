@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Stinio on 02.08.2016.
@@ -12,7 +13,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Release")
-public class Release {
+public class Release implements Serializable  {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

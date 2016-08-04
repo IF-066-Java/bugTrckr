@@ -40,5 +40,13 @@
         </put-list-attribute>
     </definition>
 
+    <definition name="about" extends="abstractDefaultTemplate">
+        <put-attribute name="title" value="About" />
+        <put-attribute name="content" value="/WEB-INF/views/about.jsp" />
+        <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/css/about.css"/>
+        </put-list-attribute>
+    </definition>
+
 
 </tiles-definitions>

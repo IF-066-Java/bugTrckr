@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -12,11 +13,11 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "Project")
-public class Project {
+public class Project implements Serializable  {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true, nullable = false)
     private int id;
 
     @Column(name = "title", nullable = false, length = 100)
@@ -47,6 +48,7 @@ public class Project {
     public Project(String title, User projectManager, boolean guestView, boolean guestCreateIssues, boolean guestAddComment, String description) {
         this.title = title;
         this.projectManager = projectManager;
+
         this.guestView = guestView;
         this.guestCreateIssues = guestCreateIssues;
         this.guestAddComment = guestAddComment;

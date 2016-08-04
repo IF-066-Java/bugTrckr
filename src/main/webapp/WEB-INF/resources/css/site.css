@@ -6,11 +6,15 @@ body {
     background-color: #fff;
 }
 
-/*For form validation*/
+/*Margins*/
 
 .margin-left-5 {
     margin-left: 5px;
 }
+
+ .margin-bottom-60 {
+     margin-bottom: 60px;
+ }
 
 /*Header bar begin*/
 
@@ -70,7 +74,7 @@ body {
 /*Navbar Menu*/
 
 .top-main-menu .navbar-nav > li > a {
-    color: #687074;
+    color: #784A3B;
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
@@ -84,7 +88,7 @@ body {
 .top-main-menu .navbar-nav > .active > a:focus {
     color: #4765a0;
     background: none;
-    border-top-color: #4765a0;
+    border-top-color: #784A3B;
 }
 
 .top-main-menu .navbar-nav > li > a:focus {
@@ -106,8 +110,27 @@ body {
 }
 
 .btn-u {
-    background: #324c80;
+    background: #784A3B;
     border: 0;
     color: #fff;
     padding: 6px 13px;
+}
+
+i.icon-bg-u {
+    background: #784A3B;
+    color: white;
+}
+
+i.icon-md {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    line-height: 55px;
+    text-align: center;
+    display: inline-block;
+    border: solid 1px #555;
+}
+
+.rounded-x {
+    border-radius: 50%;
 }
