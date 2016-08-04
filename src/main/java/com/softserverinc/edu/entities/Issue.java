@@ -1,8 +1,6 @@
 package com.softserverinc.edu.entities;
 
-import com.softserverinc.edu.entities.enums.IssueStatus;
-import com.softserverinc.edu.entities.enums.Priority;
-import com.softserverinc.edu.entities.enums.Type;
+import com.softserverinc.edu.entities.enums.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -17,7 +15,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Issue")
-public class Issue implements Serializable  {
+public class Issue implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,17 +25,25 @@ public class Issue implements Serializable  {
     @Column(name = "title", nullable = false, length = 25)
     private String title;
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "type", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    @Column(name = "issueStatus", nullable = false)
+    @Column(name = "issueStatus", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
     private IssueStatus issueStatus;
 
-    @Column(name = "priority", nullable = false)
+    @Column(name = "priority", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
     private Priority priority;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "releaseId", referencedColumnName = "id", nullable = false)
+    private Release releaseId;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "assigneeId", referencedColumnName = "id", nullable = false)
+    private User assigneeId;
 
     @Column(name = "createTime", nullable = false)
     private Date createTime;
@@ -50,6 +56,31 @@ public class Issue implements Serializable  {
 
     @Column(name = "estimateTime")
     private long estimateTime;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "parentId", referencedColumnName = "id")
+    private Issue parentId;
+
+    public Issue(String title, Type type, IssueStatus issueStatus, Priority priority, Release releaseId, User assigneeId, Date createTime) {
+        this.title = title;
+        this.type = type;
+        this.issueStatus = issueStatus;
+        this.priority = priority;
+        this.releaseId = releaseId;
+        this.assigneeId = assigneeId;
+        this.createTime = createTime;
+    }
+
+    public Issue() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -83,6 +114,22 @@ public class Issue implements Serializable  {
         this.priority = priority;
     }
 
+    public Release getReleaseId() {
+        return releaseId;
+    }
+
+    public void setReleaseId(Release releaseId) {
+        this.releaseId = releaseId;
+    }
+
+    public User getAssigneeId() {
+        return assigneeId;
+    }
+
+    public void setAssigneeId(User assigneeId) {
+        this.assigneeId = assigneeId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -113,6 +160,14 @@ public class Issue implements Serializable  {
 
     public void setEstimateTime(long estimateTime) {
         this.estimateTime = estimateTime;
+    }
+
+    public Issue getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Issue parentId) {
+        this.parentId = parentId;
     }
 
     @Override
