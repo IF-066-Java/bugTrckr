@@ -19,7 +19,7 @@ public class LoginForm implements Serializable {
     private String email;
 
     @NotEmpty(message = "Please enter your password.")
-    @Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
+    @Size(min = 5, max = 15, message = "Your password must between 6 and 15 characters")
     private String password;
 
     public String getEmail() {

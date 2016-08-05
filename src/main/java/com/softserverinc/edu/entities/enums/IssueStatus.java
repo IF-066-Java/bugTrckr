@@ -1,12 +1,11 @@
 package com.softserverinc.edu.entities.enums;
 
 /**
- * Created by 37.0 on 01.08.2016.
+ * Created by pasha on 8/3/16.
  */
 public enum IssueStatus {
-    OPEN,
-    IN_PROGRESS,
-    QA_VALIDATION,
-    RESOLVED,
-    INVALID
+    OPEN, IN_PROGRESS, QA_VALIDATION, RESOLVED, INVALID;
+
+    IssueStatus() {
+    }
 }

@@ -1,0 +1,1 @@
+/*CREATE SCHEMA IF NOT EXISTS `agilesoftware` DEFAULT CHARACTER SET utf8 ;*/

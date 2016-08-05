@@ -15,24 +15,24 @@
 <head>
     <meta http-equiv="content-type" content="text/html" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><tiles:insertAttribute name="title" /></title>
+    <title><tiles:insertAttribute name="title"/></title>
     <!-- stylesheets -->
     <c:forEach var="css" items="${stylesheets}">
         <link rel="stylesheet" type="text/css" href="<spring:url value="${css}"/>">
     </c:forEach>
     <!-- end stylesheets -->
-    <link rel="icon" type="image/png" href="<spring:url value="${images/favicon.png}"/>" >
+    <link rel="icon" type="image/png" href="<spring:url value="${images/favicon.png}"/>">
 </head>
 <body>
 <div class="page">
-    <tiles:insertAttribute name="header" />
+    <tiles:insertAttribute name="header"/>
     <div class="content">
-        <tiles:insertAttribute name="menu" />
+        <tiles:insertAttribute name="menu"/>
         <div class="container-fluid">
-            <tiles:insertAttribute name="content" />
+            <tiles:insertAttribute name="content"/>
         </div>
     </div>
-    <tiles:insertAttribute name="footer" />
+    <tiles:insertAttribute name="footer"/>
 </div>
 
 <!-- scripts -->

@@ -11,15 +11,15 @@ import java.util.*;
 /**
  * Created by 37.0 on 02.08.2016.
  */
-@Entity
+@Entity(name = "Label")
 public class Label {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true, nullable = false)
-    private Long id;
+    @Column(name = "id", unique = true, nullable = false)
+    private long id;
 
-    @Column(nullable = false, length = 25)
+    @Column(name = "title", nullable = false, length = 25)
     private String title;
 
     @OneToMany(fetch = FetchType.EAGER)

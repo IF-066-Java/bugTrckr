@@ -1,14 +1,11 @@
 package com.softserverinc.edu.entities.enums;
 
 /**
- * Created by 37.0 on 01.08.2016.
+ * Created by ihorlt on 04.08.16.
  */
-
 public enum UserRole {
-    ADMIN,
-    PM,
-    DEV,
-    QA,
-    GUEST,
-    USER
+    ADMIN, PROJECT_MANAGER, DEVELOPER, QA, USER, GUEST;
+
+    UserRole() {
+    }
 }

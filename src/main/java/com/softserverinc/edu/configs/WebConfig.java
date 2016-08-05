@@ -1,4 +1,4 @@
-package com.softserverinc.edu.config;
+package com.softserverinc.edu.configs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
-import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * Created by ihorlt on 18.07.16.
@@ -24,10 +22,30 @@ import org.springframework.web.servlet.view.tiles3.TilesView;
 @PropertySource("classpath:application.properties")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    public  static final Logger LOGGER = LoggerFactory.getLogger(WebConfig.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(WebConfig.class);
+
+    /**
+     * Configures properties for application from properties file
+     *
+     * @return empty properties configurer where Spring put data from properties file by annotation mechanism
+     */
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        super.addViewControllers(registry);
+        registry.addViewController("/about");
+        registry.addViewController("/history");
+    }
+
 
     /**
      * Make resources aviable to web client. Spring handle the folders starting from WEB-INF
+     *
      * @param registry
      */
     @Override
@@ -36,15 +54,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
         registry.addResourceHandler("/fonts/**").addResourceLocations("/resources/fonts/");
         registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
-    }
-
-    /**
-     * Configures properties for application from properties file
-     * @return empty properties configurer where Spring put data from properties file by annotation mechanism
-     */
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
     }
 
 }

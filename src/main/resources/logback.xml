@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<configuration scan="true" scanPeriod="30 seconds" >
-    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+<configuration scan="true" scanPeriod="30 seconds">
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
     <property name="LOG_HOME" value="/media/ihorlt/P2LIN/Projects/AgileSoftware/logs"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -22,11 +22,11 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework" level="TRACE" />
-    <logger name="org.springframework.web" level="TRACE" />
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.web" level="INFO"/>
 
-    <root level="trace">
-        <appender-ref ref="console" />
+    <root level="info">
+        <appender-ref ref="console"/>
     </root>
 
 </configuration>

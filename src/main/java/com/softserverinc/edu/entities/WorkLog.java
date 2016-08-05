@@ -12,12 +12,12 @@ import java.util.Date;
  * Created by 37.0 on 03.08.2016.
  */
 
-@Entity
+@Entity(name = "WorkLog")
 public class WorkLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -28,13 +28,13 @@ public class WorkLog {
     @JoinColumn(referencedColumnName = "id", nullable = false)
     private User userId;
 
-    @Column(nullable = false)
+    @Column(name = "time", nullable = false)
     private Date time;
 
-    @Column
+    @Column(name = "amount" )
     private int amount;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

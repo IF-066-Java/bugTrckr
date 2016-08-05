@@ -1,11 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.softserverinc.edu</groupId>
-    <artifactId>AgileSoftware</artifactId>
+    <artifactId>BugTrckr</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>agiledev Webapp</name>
+    <name>BugTrckr Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -164,7 +164,7 @@
     </dependencies>
 
     <build>
-        <finalName>agiledev</finalName>
+        <finalName>bugtrckr</finalName>
 
         <plugins>
 
@@ -215,7 +215,7 @@
                 <version>2.4</version>
                 <configuration>
                     <scriptLocations>${project.basedir}/dbscripts</scriptLocations>
-                    <archiveFileName>agilesoftware_db.jar</archiveFileName>
+                    <archiveFileName>bugtrckr_db.jar</archiveFileName>
                     <autoCreateDbMaintainScriptsTable>true</autoCreateDbMaintainScriptsTable>
                     <fromScratchEnabled>true</fromScratchEnabled>
                     <qualifiers>
@@ -226,8 +226,8 @@
                             <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
                             <userName>root</userName>
                             <password>root</password>
-                            <url>jdbc:mysql://localhost:3306/agilesoftware?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</url>
-                            <schemaNames>agilesoftware</schemaNames>
+                            <url>jdbc:mysql://localhost:3306/bugtrckr?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</url>
+                            <schemaNames>bugtrckr</schemaNames>
                         </database>
                     </databases>
                 </configuration>

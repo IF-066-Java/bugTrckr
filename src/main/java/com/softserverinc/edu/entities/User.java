@@ -1,13 +1,19 @@
 package com.softserverinc.edu.entities;
 
+import com.softserverinc.edu.entities.enums.UserRole;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by ihorlt on 28.07.16.
  */
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "User")
+public class User implements Serializable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,12 +33,13 @@ public class User {
     private String password;
 
     @Column(name = "role", nullable = false, length = 15)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     @Column(name = "description", nullable = true, length = 65535)
     private String description;
 
-    public User(String firstName, String lastName, String email, String password, String role, String description) {
+    public User(String firstName, String lastName, String email, String password, UserRole role, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -84,11 +91,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 
@@ -102,43 +109,17 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-
-        User user = (User) o;
-
-        if (!id.equals(user.id)) return false;
-        if (!firstName.equals(user.firstName)) return false;
-        if (!lastName.equals(user.lastName)) return false;
-        if (!email.equals(user.email)) return false;
-        if (!password.equals(user.password)) return false;
-        if (!role.equals(user.role)) return false;
-        return description != null ? description.equals(user.description) : user.description == null;
+        return EqualsBuilder.reflectionEquals(this, o);
 
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
-        result = 31 * result + email.hashCode();
-        result = 31 * result + password.hashCode();
-        result = 31 * result + role.hashCode();
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 }

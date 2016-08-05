@@ -1,1 +1,0 @@
-INSERT INTO agilesoftware.Users (firstName, lastName, email, password, role, description) VALUES ('admin', 'admin', 'admin@ss.com', '$1$SaltSalt$0q0ukNZ1NsFH8OwYrVbaD1', 'admin', 'first');

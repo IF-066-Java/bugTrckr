@@ -53,6 +53,8 @@
    
    ## Database
    
+   Create manually schema named "bugtrckr"
+   
    For creating empty tables, please, issue command from project root dir
    
    **mvn dbmaintain:updateDatabase@db-update-create**

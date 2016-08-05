@@ -1,0 +1,1 @@
+ALTER TABLE `Issue` ADD CONSTRAINT `Issue_fk2` FOREIGN KEY (`parentId`) REFERENCES `Issue`(`id`);

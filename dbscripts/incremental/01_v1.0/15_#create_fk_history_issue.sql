@@ -1,0 +1,1 @@
+ALTER TABLE `History` ADD CONSTRAINT `History_fk0` FOREIGN KEY (`issueId`) REFERENCES `Issue`(`id`);

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-sm-6">
             <ul class="left-topbar">
-                <li>Agile Software - An essential tool for a project developer</li>
+                <li>Bug Trckr - An essential tool for a project developer</li>
             </ul>
         </div>
         <div class="col-sm-6 col-md-6">
